@@ -46,13 +46,32 @@ RestartSec=20
 WantedBy=multi-user.target
 EOF
 
-# Start mesos-dns 
+# Start mesos-dns
 systemctl daemon-reload
 systemctl start mesos-dns
 ```
+对于 mesos-dns 配置，如果还有内部dns，可以在配置里加上`resolvers`，并将`externalon`改为true。表示mesos-dns会向resolvers发送外部dns解析请求
+```
+{
+  "zk": "zk://10.101.160.15:2181/mesos",
+  "masters": ["10.101.160.15:5050", "10.101.160.16:5050", "10.101.160.17:5050"],
+  "refreshSeconds": 60,
+  "mesosCredentials": {
+    "principal": "admin",
+    "secret": "password"
+  },
+  "mesosAuthentication": "basic",
+  "ttl": 60,
+  "domain": "mesos",
+  "port": 53,
+  "resolvers": ["10.70.5.5", "10.70.39.5"]
+  "externalon": true,
+  "timeout": 5
+}
+```
 
 
-### 设置从节点 
+### 设置从节点
 允许Mesos任务使用Mesos-DNS作为主DNS服务，必须在每个从节点上修改文件 /etc/resolv.conf增加新的nameserver。例如，如果多个mesos-dns运行的服务器地址是`10.181.64.11，10.181.64.12，10.181.64.13`， 则应该在每个从节点/etc/resolv.conf开始加上三行nameserver 10.181.64.1X。可以通过运行下面的命令实现：
 ```
 sudo sed -i '1s/^/nameserver 10.181.64.11\n /' /etc/resolv.conf
@@ -61,7 +80,7 @@ sudo sed -i '3s/^/nameserver 10.181.64.13\n /' /etc/resolv.conf
 ```
 这些条目的顺序将确定从节点连接Mesos-DNS实例的顺序。可以通过设置options rotate在nameserver之间选择负载均衡的轮循机制, 如
 ```
-# cat /etc/resolv.conf 
+# cat /etc/resolv.conf
 options rotate
 nameserver 10.181.64.11
 nameserver 10.181.64.12
