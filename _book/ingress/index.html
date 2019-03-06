@@ -1,0 +1,678 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>ingress · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../tracing/" />
+    
+    
+    <link rel="prev" href="../bookinfo/faultinject.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../prerequisite/mesos-dns.html">
+            
+                <a href="../prerequisite/mesos-dns.html">
+            
+                    
+                    环境准备
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../prerequisite/mesos-dns.html">
+            
+                <a href="../prerequisite/mesos-dns.html">
+            
+                    
+                    mesos-dns
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../prerequisite/cni.html">
+            
+                <a href="../prerequisite/cni.html">
+            
+                    
+                    cni
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../prerequisite/mesos-container.html">
+            
+                <a href="../prerequisite/mesos-container.html">
+            
+                    
+                    mesos-container
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../istio-setup/pilot.html">
+            
+                <a href="../istio-setup/pilot.html">
+            
+                    
+                    istio 组件安装
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../istio-setup/pilot.html">
+            
+                <a href="../istio-setup/pilot.html">
+            
+                    
+                    服务发现
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../bookinfo/">
+            
+                <a href="../bookinfo/">
+            
+                    
+                    bookinfo
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../bookinfo/route.html">
+            
+                <a href="../bookinfo/route.html">
+            
+                    
+                    路由控制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../bookinfo/faultinject.html">
+            
+                <a href="../bookinfo/faultinject.html">
+            
+                    
+                    错误注入
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.5" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    ingress
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../tracing/">
+            
+                <a href="../tracing/">
+            
+                    
+                    tracing
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >ingress</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="ingress-gateway">Ingress Gateway</h1>
+<p>&#x5728;&#x4E00;&#x4E2A;&#x5178;&#x578B;&#x7684;&#x7F51;&#x683C;&#x4E2D;&#xFF0C;&#x901A;&#x5E38;&#x6709;&#x4E00;&#x4E2A;&#x6216;&#x591A;&#x4E2A;&#x7528;&#x4E8E;&#x7EC8;&#x7ED3;&#x5916;&#x90E8; TLS &#x94FE;&#x63A5;&#xFF0C;&#x5C06;&#x6D41;&#x91CF;&#x5F15;&#x5165;&#x7F51;&#x683C;&#x7684;&#x8D1F;&#x8F7D;&#x5747;&#x8861;&#x5668;&#xFF08;&#x6211;&#x4EEC;&#x79F0;&#x4E4B;&#x4E3A; gateway&#xFF09;&#x3002; #&#x7136;&#x540E;&#x6D41;&#x91CF;&#x901A;&#x8FC7;&#x8FB9;&#x8F66;&#x7F51;&#x5173;&#xFF08;sidecar gateway&#xFF09;&#x6D41;&#x7ECF;&#x5185;&#x90E8;&#x670D;&#x52A1;&#x3002;&#x4E0B;&#x56FE;&#x63CF;&#x7ED8;&#x4E86;&#x7F51;&#x5173;&#x5728;&#x7F51;&#x683C;&#x4E2D;&#x7684;&#x4F7F;&#x7528;&#x60C5;&#x51B5;
+<img src="https://istio.io/blog/2018/v1alpha3-routing/gateways.svg" alt="gateways"></p>
+<p>&#x5176;&#x4E2D; Gateway &#x662F;&#x4E00;&#x4E2A;&#x72EC;&#x7ACB;&#x4E8E;&#x5E73;&#x53F0;&#x7684;&#x62BD;&#x8C61;&#xFF0C;&#x7528;&#x4E8E;&#x5BF9;&#x6D41;&#x5165;&#x4E13;&#x7528;&#x4E2D;&#x95F4;&#x8BBE;&#x5907;&#x7684;&#x6D41;&#x91CF;&#x8FDB;&#x884C;&#x5EFA;&#x6A21;&#x3002;&#x4E0B;&#x56FE;&#x63CF;&#x8FF0;&#x4E86;&#x8DE8;&#x591A;&#x4E2A;&#x914D;&#x7F6E;&#x8D44;&#x6E90;&#x7684;&#x63A7;&#x5236;&#x6D41;&#x7A0B;&#x3002;
+<img src="https://istio.io/blog/2018/v1alpha3-routing/virtualservices-destrules.svg" alt="virtualservices-destrules"></p>
+<h2 id="&#x524D;&#x63D0;&#x6761;&#x4EF6;">&#x524D;&#x63D0;&#x6761;&#x4EF6;</h2>
+<p>&#x9700;&#x8981;&#x5148;&#x90E8;&#x7F72;&#x597D; <a href="../bookinfo/">bookinfo</a></p>
+<h2 id="ingress-&#x90E8;&#x7F72;">Ingress &#x90E8;&#x7F72;</h2>
+<p>Ingressgateway &#x540C;&#x6837;&#x4EE5;pod&#x7684;&#x65B9;&#x5F0F;&#x90E8;&#x7F72;&#xFF1A;</p>
+<pre><code>{
+    &quot;id&quot;: &quot;/istio-ingressgateway&quot;,
+    &quot;labels&quot;: {
+        &quot;istio&quot;: &quot;ingressgateway&quot;
+    },
+    &quot;environment&quot;: {
+        &quot;SERVICES_DOMAIN&quot;: &quot;marathon.slave.mesos&quot;
+    },
+    &quot;containers&quot;: [
+        {
+            &quot;name&quot;: &quot;istio-ingressgateway&quot;,
+            &quot;exec&quot;: {
+                &quot;command&quot;: {
+                    &quot;shell&quot;: &quot;/usr/local/bin/pilot-agent proxy  router  -v  \&quot;2\&quot;  --discoveryRefreshDelay  &apos;1s&apos;   --drainDuration  &apos;45s&apos;  --parentShutdownDuration  &apos;1m0s&apos;  --connectTimeout  &apos;10s&apos; --serviceregistry Mesos --serviceCluster  istio-ingressgateway  --zipkinAddress  zipkin.marathon.slave.mesos:31767 --proxyAdminPort  \&quot;15000\&quot;  --controlPlaneAuthPolicy  NONE  --discoveryAddress  pilot.istio.marathon.slave.mesos:31510&quot;
+                }
+            },
+            &quot;resources&quot;: {
+                &quot;cpus&quot;: 0.2,
+                &quot;mem&quot;: 512,
+                &quot;disk&quot;: 0,
+                &quot;gpus&quot;: 0
+            },
+            &quot;endpoints&quot;: [
+                {
+                    &quot;name&quot;: &quot;http2&quot;,
+                    &quot;containerPort&quot;: 80,
+                    &quot;hostPort&quot;: 0,
+                    &quot;protocol&quot;: [
+                        &quot;tcp&quot;
+                    ]
+                },
+                {
+                    &quot;name&quot;: &quot;https&quot;,
+                    &quot;containerPort&quot;: 443,
+                    &quot;hostPort&quot;: 0,
+                    &quot;protocol&quot;: [
+                        &quot;tcp&quot;
+                    ]
+                },
+                {
+                    &quot;name&quot;: &quot;tcp&quot;,
+                    &quot;containerPort&quot;: 31400,
+                    &quot;hostPort&quot;: 0,
+                    &quot;protocol&quot;: [
+                        &quot;tcp&quot;
+                    ]
+                },
+                {
+                    &quot;name&quot;: &quot;tcp-pilot-grpc-tls&quot;,
+                    &quot;containerPort&quot;: 15011,
+                    &quot;hostPort&quot;: 0,
+                    &quot;protocol&quot;: [
+                        &quot;tcp&quot;
+                    ]
+                },
+                {
+                    &quot;name&quot;: &quot;tcp-citadel-grpc-tls&quot;,
+                    &quot;containerPort&quot;: 8060,
+                    &quot;hostPort&quot;: 0,
+                    &quot;protocol&quot;: [
+                        &quot;tcp&quot;
+                    ]
+                },
+                {
+                    &quot;name&quot;: &quot;tcp-dns-tls&quot;,
+                    &quot;containerPort&quot;: 853,
+                    &quot;hostPort&quot;: 0,
+                    &quot;protocol&quot;: [
+                        &quot;tcp&quot;
+                    ]
+                },
+                {
+                    &quot;name&quot;: &quot;http2-prometheus&quot;,
+                    &quot;containerPort&quot;: 15030,
+                    &quot;hostPort&quot;: 0,
+                    &quot;protocol&quot;: [
+                        &quot;tcp&quot;
+                    ]
+                },
+                {
+                    &quot;name&quot;: &quot;http2-grafana&quot;,
+                    &quot;containerPort&quot;: 15031,
+                    &quot;hostPort&quot;: 0,
+                    &quot;protocol&quot;: [
+                        &quot;tcp&quot;
+                    ]
+                }
+            ],
+            &quot;image&quot;: {
+                &quot;kind&quot;: &quot;DOCKER&quot;,
+                &quot;id&quot;: &quot;hyge/proxy_debug:1.0.5&quot;
+            }
+        }
+    ],
+    &quot;networks&quot;: [
+        {
+            &quot;name&quot;: &quot;mesos-bridge&quot;,
+            &quot;mode&quot;: &quot;container&quot;
+        }
+    ],
+    &quot;scaling&quot;: {
+        &quot;kind&quot;: &quot;fixed&quot;,
+        &quot;instances&quot;: 1
+    },
+    &quot;scheduling&quot;: {
+        &quot;backoff&quot;: {
+            &quot;backoff&quot;: 1,
+            &quot;backoffFactor&quot;: 1.15,
+            &quot;maxLaunchDelay&quot;: 3600
+        },
+        &quot;upgrade&quot;: {
+            &quot;minimumHealthCapacity&quot;: 1,
+            &quot;maximumOverCapacity&quot;: 1
+        },
+        &quot;killSelection&quot;: &quot;YOUNGEST_FIRST&quot;,
+        &quot;unreachableStrategy&quot;: {
+            &quot;inactiveAfterSeconds&quot;: 0,
+            &quot;expungeAfterSeconds&quot;: 0
+        }
+    },
+    &quot;executorResources&quot;: {
+        &quot;cpus&quot;: 0.1,
+        &quot;mem&quot;: 32,
+        &quot;disk&quot;: 10
+    }
+}
+</code></pre><p>ingressgateway&#x548C;bookinfo&#x542F;&#x52A8;&#x540E;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x914D;&#x7F6E;80&#x7AEF;&#x53E3;&#x7684;gateway:</p>
+<pre><code>cat &lt;&lt;EOF | kubectl apply -f -
+apiVersion: networking.istio.io/v1alpha3
+kind: Gateway
+metadata:
+  name: productpage-gateway
+spec:
+  selector:
+    istio: ingressgateway # use Istio default gateway implementation
+  servers:
+  - port:
+      number: 80
+      name: http
+      protocol: HTTP
+    hosts:
+    - &quot;productpage.example.com&quot;
+EOF
+</code></pre><p>&#x7ED9;gateway&#x914D;&#x7F6E;&#x8DEF;&#x7531;</p>
+<pre><code>cat &lt;&lt;EOF | kubectl apply -f -
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: productpage-gateway
+spec:
+  hosts:
+  - &quot;productpage.example.com&quot;
+  gateways:
+  - productpage-gateway
+  http:
+  - match:
+    - uri:
+        prefix: /
+    - uri:
+        prefix: /productpage
+    route:
+    - destination:
+        port:
+          number: 9080
+        host: productpage.marathon.slave.mesos
+EOF
+</code></pre><h2 id="ingress-&#x8BBF;&#x95EE;">Ingress &#x8BBF;&#x95EE;</h2>
+<p>&#x9996;&#x5148;&#x9700;&#x8981;&#x83B7;&#x53D6;ingress pod&#x7684; hostIP &#x4EE5;&#x53CA; host port&#xFF1A;</p>
+<pre><code># curl localhost:8080/v2/pods/istio-ingressgateway::status
+ {
+    &quot;id&quot;: &quot;/istio-ingressgateway&quot;,
+    &quot;spec&quot;: {
+        &quot;id&quot;: &quot;/istio-ingressgateway&quot;,
+        &quot;labels&quot;: {
+            &quot;istio&quot;: &quot;ingressgateway&quot;
+        },
+        ...
+    &quot;status&quot;: &quot;STABLE&quot;,
+    &quot;statusSince&quot;: &quot;2019-01-25T02:25:08.892Z&quot;,
+    &quot;instances&quot;: [
+        {
+            &quot;id&quot;: &quot;istio-ingressgateway.instance-6cbf6f2d-2048-11e9-a4ed-560a19cd1873&quot;,
+            ...
+            &quot;agentHostname&quot;: &quot;172.31.26.199&quot;,  # Host IP
+            &quot;agentId&quot;: &quot;539c3f6d-bd72-4024-96fb-183d71ec1f27-S576&quot;,
+           ...
+            &quot;networks&quot;: [
+                {
+                    &quot;name&quot;: &quot;mesos-bridge&quot;,
+                    &quot;addresses&quot;: [
+                        &quot;172.31.254.33&quot;
+                    ]
+                }
+            ],
+            &quot;containers&quot;: [
+                {
+                    &quot;name&quot;: &quot;istio-ingressgateway&quot;,
+                    &quot;status&quot;: &quot;TASK_RUNNING&quot;,
+                    &quot;statusSince&quot;: &quot;2019-01-25T02:25:08.892Z&quot;,
+                    &quot;conditions&quot;: [],
+                    &quot;containerId&quot;: &quot;istio-ingressgateway.instance-6cbf6f2d-2048-11e9-a4ed-560a19cd1873.istio-ingressgateway&quot;,
+                    &quot;endpoints&quot;: [
+                        {
+                            &quot;name&quot;: &quot;http2&quot;,
+                            &quot;allocatedHostPort&quot;: 31705 # Host Port
+                        },
+                        {
+                            &quot;name&quot;: &quot;https&quot;,
+                            &quot;allocatedHostPort&quot;: 31706
+                        },
+                        {
+                            &quot;name&quot;: &quot;tcp&quot;,
+                            &quot;allocatedHostPort&quot;: 31707
+                        },
+                        {
+                            &quot;name&quot;: &quot;tcp-pilot-grpc-tls&quot;,
+                            &quot;allocatedHostPort&quot;: 31708
+                        },
+                        {
+                            &quot;name&quot;: &quot;tcp-citadel-grpc-tls&quot;,
+                            &quot;allocatedHostPort&quot;: 31709
+                        },
+                        {
+                            &quot;name&quot;: &quot;tcp-dns-tls&quot;,
+                            &quot;allocatedHostPort&quot;: 31710
+                        },
+                        {
+                            &quot;name&quot;: &quot;http2-prometheus&quot;,
+                            &quot;allocatedHostPort&quot;: 31711
+                        },
+                        {
+                            &quot;name&quot;: &quot;http2-grafana&quot;,
+                            &quot;allocatedHostPort&quot;: 31712
+                        }
+                    ],
+                   ...
+}
+</code></pre><p><code>http2</code> &#x7684; <code>allocatedHostPort</code> &#x662F; 31705, <code>host ip(agentHostname)</code>&#x4E3A;172.31.26.199&#x3002;
+&#x5219;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x901A;&#x8FC7; <code>curl  -HHost:productpage.example.com  172.31.26.199:31705</code> &#x6765;&#x8BBF;&#x95EE;productpage&#xFF0C;&#x5982;&#x679C;&#x6210;&#x529F;&#x83B7;&#x53D6;html&#xFF0C;&#x5219;&#x8BF4;&#x660E;ingress&#x6B63;&#x5E38;</p>
+<h2 id="&#x6D4F;&#x89C8;&#x5668;&#x8BBF;&#x95EE;ingress">&#x6D4F;&#x89C8;&#x5668;&#x8BBF;&#x95EE;Ingress</h2>
+<p>curl &#x8BBF;&#x95EE;ingress&#x65F6;&#xFF0C;&#x901A;&#x8FC7;&#x4E86;&#x5728;header&#x4E2D;&#x52A0;&#x5165; <code>Host:productpage.example.com</code> &#x6765;&#x6307;&#x5B9A;&#x9700;&#x8981;ingress&#x5BFC;&#x6D41;&#x7684;&#x540E;&#x7AEF;&#x670D;&#x52A1;&#xFF0C;&#x4F46;&#x662F;&#x901A;&#x8FC7;&#x6D4F;&#x89C8;&#x5668;&#x8BBF;&#x95EE;&#x540E;&#x7AEF;&#x670D;&#x52A1;&#x65F6;&#xFF0C;&#x6307;&#x5B9A;header&#x662F;&#x4E0D;&#x73B0;&#x5B9E;&#x7684;&#x3002;&#x6240;&#x4EE5;&#x8003;&#x8651;&#x4F7F;&#x7528;&#x901A;&#x914D;&#x7B26;<code>*</code>&#x6765;&#x66FF;&#x6362;gateway&#x548C;virtualservice&#x4E2D;&#x7684;<code>hosts</code>&#xFF1A;</p>
+<pre><code>cat &lt;&lt;EOF | kubectl apply -f -
+apiVersion: networking.istio.io/v1alpha3
+kind: Gateway
+metadata:
+  name: productpage-gateway
+spec:
+  selector:
+    istio: ingressgateway # use Istio default gateway implementation
+  servers:
+  - port:
+      number: 80
+      name: http
+      protocol: HTTP
+    hosts:
+    - &quot;*&quot;
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: productpage-gateway
+spec:
+  hosts:
+  - &quot;*&quot;
+  gateways:
+  - productpage-gateway
+  http:
+  - match:
+    - uri:
+        prefix: /
+    - uri:
+        prefix: /productpage
+    route:
+    - destination:
+        port:
+          number: 9080
+        host: productpage.marathon.slave.mesos
+EOF
+</code></pre><p>&#x4E4B;&#x540E;&#x5373;&#x53EF;&#x901A;&#x8FC7; <code>172.31.26.199:31705</code> &#x5728;&#x6D4F;&#x89C8;&#x5668;&#x4E2D;&#x8BBF;&#x95EE;productpage</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="../bookinfo/faultinject.html" class="navigation navigation-prev " aria-label="Previous page: 错误注入">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../tracing/" class="navigation navigation-next " aria-label="Next page: tracing">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"ingress","level":"1.5","depth":1,"next":{"title":"tracing","level":"1.6","depth":1,"path":"tracing/README.md","ref":"tracing/README.md","articles":[]},"previous":{"title":"错误注入","level":"1.4.2","depth":2,"path":"bookinfo/faultinject.md","ref":"bookinfo/faultinject.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"ingress/README.md","mtime":"2019-03-06T01:47:53.664Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-03-06T04:28:13.883Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

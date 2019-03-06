@@ -1,0 +1,734 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>istio 组件安装 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="pilot.html" />
+    
+    
+    <link rel="prev" href="../prerequisite/mesos-container.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../prerequisite/mesos-dns.html">
+            
+                <a href="../prerequisite/mesos-dns.html">
+            
+                    
+                    环境准备
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../prerequisite/mesos-dns.html">
+            
+                <a href="../prerequisite/mesos-dns.html">
+            
+                    
+                    mesos-dns
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../prerequisite/cni.html">
+            
+                <a href="../prerequisite/cni.html">
+            
+                    
+                    cni
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../prerequisite/mesos-container.html">
+            
+                <a href="../prerequisite/mesos-container.html">
+            
+                    
+                    mesos-container
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.3" data-path="pilot.html">
+            
+                <a href="pilot.html">
+            
+                    
+                    istio 组件安装
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="1.3.1" data-path="pilot.html">
+            
+                <a href="pilot.html">
+            
+                    
+                    服务发现
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../bookinfo/">
+            
+                <a href="../bookinfo/">
+            
+                    
+                    bookinfo
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../bookinfo/route.html">
+            
+                <a href="../bookinfo/route.html">
+            
+                    
+                    路由控制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../bookinfo/faultinject.html">
+            
+                <a href="../bookinfo/faultinject.html">
+            
+                    
+                    错误注入
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../ingress/">
+            
+                <a href="../ingress/">
+            
+                    
+                    ingress
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../tracing/">
+            
+                <a href="../tracing/">
+            
+                    
+                    tracing
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >istio 组件安装</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="&#x5B89;&#x88C5;-istio-&#x670D;&#x52A1;&#x6CE8;&#x518C;&#x53D1;&#x73B0;&#x7EC4;&#x4EF6;">&#x5B89;&#x88C5; Istio &#x670D;&#x52A1;&#x6CE8;&#x518C;&#x53D1;&#x73B0;&#x7EC4;&#x4EF6;</h1>
+<p>&#x4EE5; group &#x5F62;&#x5F0F;&#x90E8;&#x7F72;<code>etcd, apiserver, pilot, jaeger</code>&#x3002; json&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code>{
+    &quot;id&quot;: &quot;/istio&quot;,
+    &quot;apps&quot;: [
+        {
+            &quot;id&quot;: &quot;/istio/etcd&quot;,
+            &quot;acceptedResourceRoles&quot;: [
+                &quot;*&quot;
+            ],
+            &quot;backoffFactor&quot;: 1.15,
+            &quot;backoffSeconds&quot;: 1,
+            &quot;cmd&quot;: &quot;/usr/local/bin/etcd -advertise-client-urls=http://0.0.0.0:2379 -listen-client-urls=http://0.0.0.0:2379&quot;,
+            &quot;container&quot;: {
+                &quot;type&quot;: &quot;DOCKER&quot;,
+                &quot;docker&quot;: {
+                    &quot;forcePullImage&quot;: false,
+                    &quot;image&quot;: &quot;quay.io/coreos/etcd:latest&quot;,
+                    &quot;parameters&quot;: [],
+                    &quot;privileged&quot;: false
+                },
+                &quot;volumes&quot;: [],
+                &quot;portMappings&quot;: [
+                    {
+                        &quot;containerPort&quot;: 2379,
+                        &quot;hostPort&quot;: 31379,
+                        &quot;labels&quot;: {},
+                        &quot;name&quot;: &quot;etcd&quot;,
+                        &quot;protocol&quot;: &quot;tcp&quot;,
+                        &quot;servicePort&quot;: 10000
+                    }
+                ]
+            },
+            &quot;cpus&quot;: 0.5,
+            &quot;disk&quot;: 0,
+            &quot;env&quot;: {
+                &quot;SERVICE_IGNORE&quot;: &quot;1&quot;
+            },
+            &quot;executor&quot;: &quot;&quot;,
+            &quot;healthChecks&quot;: [
+                {
+                    &quot;gracePeriodSeconds&quot;: 300,
+                    &quot;ignoreHttp1xx&quot;: false,
+                    &quot;intervalSeconds&quot;: 60,
+                    &quot;maxConsecutiveFailures&quot;: 3,
+                    &quot;path&quot;: &quot;/health&quot;,
+                    &quot;portIndex&quot;: 0,
+                    &quot;protocol&quot;: &quot;HTTP&quot;,
+                    &quot;timeoutSeconds&quot;: 20,
+                    &quot;delaySeconds&quot;: 15
+                }
+            ],
+            &quot;instances&quot;: 1,
+            &quot;labels&quot;: {
+                &quot;consul&quot;: &quot;&quot;
+            },
+            &quot;maxLaunchDelaySeconds&quot;: 3600,
+            &quot;mem&quot;: 512,
+            &quot;gpus&quot;: 0,
+            &quot;networks&quot;: [
+                {
+                    &quot;mode&quot;: &quot;container/bridge&quot;
+                }
+            ],
+            &quot;requirePorts&quot;: false,
+            &quot;upgradeStrategy&quot;: {
+                &quot;maximumOverCapacity&quot;: 1,
+                &quot;minimumHealthCapacity&quot;: 1
+            },
+            &quot;version&quot;: &quot;2019-03-05T16:24:26.341Z&quot;,
+            &quot;versionInfo&quot;: {
+                &quot;lastScalingAt&quot;: &quot;2019-03-05T16:24:26.341Z&quot;,
+                &quot;lastConfigChangeAt&quot;: &quot;2019-03-05T16:24:26.341Z&quot;
+            },
+            &quot;killSelection&quot;: &quot;YOUNGEST_FIRST&quot;,
+            &quot;unreachableStrategy&quot;: {
+                &quot;inactiveAfterSeconds&quot;: 0,
+                &quot;expungeAfterSeconds&quot;: 0
+            }
+        },
+        {
+            &quot;id&quot;: &quot;/istio/zipkin&quot;,
+            &quot;cmd&quot;: null,
+            &quot;cpus&quot;: 0.5,
+            &quot;mem&quot;: 1024,
+            &quot;disk&quot;: 0,
+            &quot;instances&quot;: 1,
+            &quot;portDefinitions&quot;: [],
+            &quot;acceptedResourceRoles&quot;: [
+              &quot;*&quot;
+            ],
+            &quot;container&quot;: {
+              &quot;type&quot;: &quot;DOCKER&quot;,
+              &quot;docker&quot;: {
+                &quot;forcePullImage&quot;: false,
+                &quot;image&quot;: &quot;jaegertracing/all-in-one:1.5&quot;,
+                &quot;parameters&quot;: [],
+                &quot;privileged&quot;: false
+              },
+              &quot;volumes&quot;: [],
+              &quot;portMappings&quot;: [
+                {
+                  &quot;containerPort&quot;: 9411,
+                  &quot;hostPort&quot;: 31767,
+                  &quot;labels&quot;: {},
+                  &quot;name&quot;: &quot;zipkin&quot;,
+                  &quot;protocol&quot;: &quot;tcp&quot;,
+                  &quot;servicePort&quot;: 10002
+                },
+                {
+                  &quot;containerPort&quot;: 16686,
+                  &quot;hostPort&quot;: 0,
+                  &quot;labels&quot;: {},
+                  &quot;name&quot;: &quot;query-http&quot;,
+                  &quot;protocol&quot;: &quot;tcp&quot;,
+                  &quot;servicePort&quot;: 10005
+                },
+                {
+                  &quot;containerPort&quot;: 14267,
+                  &quot;hostPort&quot;: 0,
+                  &quot;labels&quot;: {},
+                  &quot;name&quot;: &quot;jaeger-collector-tchannel&quot;,
+                  &quot;protocol&quot;: &quot;tcp&quot;,
+                  &quot;servicePort&quot;: 10006
+                },
+                {
+                  &quot;containerPort&quot;: 14268,
+                  &quot;hostPort&quot;: 0,
+                  &quot;labels&quot;: {},
+                  &quot;name&quot;: &quot;jaeger-collector-http&quot;,
+                  &quot;protocol&quot;: &quot;tcp&quot;,
+                  &quot;servicePort&quot;: 10007
+                },
+                {
+                  &quot;containerPort&quot;: 5775,
+                  &quot;hostPort&quot;: 0,
+                  &quot;labels&quot;: {},
+                  &quot;name&quot;: &quot;agent-zipkin-thrift&quot;,
+                  &quot;protocol&quot;: &quot;udp&quot;,
+                  &quot;servicePort&quot;: 10008
+                },
+                {
+                  &quot;containerPort&quot;: 6831,
+                  &quot;hostPort&quot;: 0,
+                  &quot;labels&quot;: {},
+                  &quot;name&quot;: &quot;agent-compact&quot;,
+                  &quot;protocol&quot;: &quot;tcp&quot;,
+                  &quot;servicePort&quot;: 10009
+                },
+                {
+                  &quot;containerPort&quot;: 6832,
+                  &quot;hostPort&quot;: 0,
+                  &quot;labels&quot;: {},
+                  &quot;name&quot;: &quot;agent-binary&quot;,
+                  &quot;protocol&quot;: &quot;tcp&quot;,
+                  &quot;servicePort&quot;: 10010
+                }
+              ]
+            },
+            &quot;env&quot;: {
+              &quot;COLLECTOR_ZIPKIN_HTTP_PORT&quot;: &quot;9411&quot;,
+              &quot;MEMORY_MAX_TRACES&quot;: &quot;50000&quot;
+            },
+            &quot;healthChecks&quot;: [
+              {
+                &quot;gracePeriodSeconds&quot;: 300,
+                &quot;ignoreHttp1xx&quot;: false,
+                &quot;intervalSeconds&quot;: 60,
+                &quot;maxConsecutiveFailures&quot;: 3,
+                &quot;path&quot;: &quot;/&quot;,
+                &quot;portIndex&quot;: 1,
+                &quot;protocol&quot;: &quot;HTTP&quot;,
+                &quot;timeoutSeconds&quot;: 20,
+                &quot;delaySeconds&quot;: 15
+              }
+            ],
+            &quot;networks&quot;: [
+              {
+                &quot;mode&quot;: &quot;container/bridge&quot;
+              }
+            ]
+        },
+        {
+            &quot;id&quot;: &quot;/istio/apiserver&quot;,
+            &quot;dependencies&quot;: [&quot;/istio/etcd&quot;],
+            &quot;backoffFactor&quot;: 1.15,
+            &quot;backoffSeconds&quot;: 1,
+            &quot;cmd&quot;: &quot;kube-apiserver --etcd-servers http://etcd.istio.marathon.slave.mesos:31379 --service-cluster-ip-range 10.99.0.0/16 --insecure-port 8080 -v 2 --insecure-bind-address 0.0.0.0&quot;,
+            &quot;container&quot;: {
+                &quot;type&quot;: &quot;DOCKER&quot;,
+                &quot;docker&quot;: {
+                    &quot;forcePullImage&quot;: false,
+                    &quot;image&quot;: &quot;gcr.io/google_containers/kube-apiserver:v1.10.12&quot;,
+                    &quot;parameters&quot;: [],
+                    &quot;privileged&quot;: false
+                },
+                &quot;volumes&quot;: [],
+                &quot;portMappings&quot;: [
+                    {
+                        &quot;containerPort&quot;: 8080,
+                        &quot;hostPort&quot;: 31080,
+                        &quot;labels&quot;: {
+                            &quot;VIP_0&quot;: &quot;/apiserver:10080&quot;
+                        },
+                        &quot;protocol&quot;: &quot;tcp&quot;,
+                        &quot;servicePort&quot;: 10000
+                    }
+                ]
+            },
+            &quot;cpus&quot;: 0.3,
+            &quot;disk&quot;: 0,
+            &quot;executor&quot;: &quot;&quot;,
+            &quot;healthChecks&quot;: [
+                {
+                    &quot;gracePeriodSeconds&quot;: 300,
+                    &quot;ignoreHttp1xx&quot;: false,
+                    &quot;intervalSeconds&quot;: 60,
+                    &quot;maxConsecutiveFailures&quot;: 3,
+                    &quot;path&quot;: &quot;/healthz&quot;,
+                    &quot;portIndex&quot;: 0,
+                    &quot;protocol&quot;: &quot;HTTP&quot;,
+                    &quot;timeoutSeconds&quot;: 20,
+                    &quot;delaySeconds&quot;: 15
+                }
+            ],
+            &quot;instances&quot;: 1,
+            &quot;labels&quot;: {
+                &quot;HAPROXY_GROUP&quot;: &quot;external&quot;,
+                &quot;HAPROXY_0_VHOST&quot;: &quot;&quot;
+            },
+            &quot;maxLaunchDelaySeconds&quot;: 3600,
+            &quot;mem&quot;: 640,
+            &quot;gpus&quot;: 0,
+            &quot;networks&quot;: [
+                {
+                    &quot;mode&quot;: &quot;container/bridge&quot;
+                }
+            ],
+            &quot;requirePorts&quot;: false,
+            &quot;upgradeStrategy&quot;: {
+                &quot;maximumOverCapacity&quot;: 1,
+                &quot;minimumHealthCapacity&quot;: 1
+            },
+            &quot;version&quot;: &quot;2019-03-05T16:24:11.024Z&quot;,
+            &quot;versionInfo&quot;: {
+                &quot;lastScalingAt&quot;: &quot;2019-03-05T16:24:11.024Z&quot;,
+                &quot;lastConfigChangeAt&quot;: &quot;2019-03-05T16:24:11.024Z&quot;
+            },
+            &quot;killSelection&quot;: &quot;YOUNGEST_FIRST&quot;,
+            &quot;unreachableStrategy&quot;: {
+                &quot;inactiveAfterSeconds&quot;: 0,
+                &quot;expungeAfterSeconds&quot;: 0
+            }
+        },
+        {
+          &quot;id&quot;: &quot;/istio/pilot&quot;,
+          &quot;dependencies&quot;: [&quot;/istio/apiserver&quot;],
+          &quot;backoffFactor&quot;: 1.15,
+          &quot;backoffSeconds&quot;: 1,
+          &quot;cmd&quot;: &quot;/usr/local/bin/pilot-discovery discovery --httpAddr :15007 --registries Mesos --domain marathon.slave.mesos --mesosVIPDomain marathon.slave.mesos --mesosMaster http://master.mesos:8080 --kubeconfig /mnt/mesos/sandbox/kubeconfig&quot;,
+          &quot;container&quot;: {
+            &quot;portMappings&quot;: [
+              {
+                &quot;containerPort&quot;: 9093,
+                &quot;hostPort&quot;: 31993,
+                &quot;protocol&quot;: &quot;tcp&quot;,
+                &quot;name&quot;: &quot;debug&quot;
+              },
+              {
+                &quot;containerPort&quot;: 15010,
+                &quot;hostPort&quot;: 31510,
+                &quot;protocol&quot;: &quot;tcp&quot;,
+                &quot;name&quot;: &quot;grpc&quot;
+              },
+              {
+                &quot;containerPort&quot;: 15007,
+                &quot;hostPort&quot;: 31507,
+                &quot;protocol&quot;: &quot;tcp&quot;,
+                &quot;name&quot;: &quot;http&quot;
+              }
+            ],
+            &quot;type&quot;: &quot;DOCKER&quot;,
+            &quot;volumes&quot;: [],
+            &quot;docker&quot;: {
+              &quot;image&quot;: &quot;hyge/pilot:mesos&quot;,
+              &quot;forcePullImage&quot;: false,
+              &quot;parameters&quot;: []
+            }
+          },
+          &quot;cpus&quot;: 1,
+          &quot;fetch&quot;: [
+            {
+              &quot;uri&quot;: &quot;https://raw.githubusercontent.com/harryge00/mylinuxrc/master/dcos/istio/install/kubeconfig&quot;,
+              &quot;extract&quot;: false,
+              &quot;executable&quot;: false,
+              &quot;cache&quot;: false
+            }
+          ],
+          &quot;instances&quot;: 1,
+          &quot;maxLaunchDelaySeconds&quot;: 3600,
+          &quot;mem&quot;: 1024,
+          &quot;networks&quot;: [
+            {
+              &quot;mode&quot;: &quot;container/bridge&quot;
+            }
+          ],
+          &quot;requirePorts&quot;: false,
+          &quot;upgradeStrategy&quot;: {
+            &quot;maximumOverCapacity&quot;: 1,
+            &quot;minimumHealthCapacity&quot;: 1
+          },
+          &quot;killSelection&quot;: &quot;YOUNGEST_FIRST&quot;,
+          &quot;unreachableStrategy&quot;: {
+            &quot;inactiveAfterSeconds&quot;: 0,
+            &quot;expungeAfterSeconds&quot;: 0
+          },
+          &quot;healthChecks&quot;: [
+              {
+                &quot;gracePeriodSeconds&quot;: 300,
+                &quot;ignoreHttp1xx&quot;: false,
+                &quot;intervalSeconds&quot;: 60,
+                &quot;maxConsecutiveFailures&quot;: 3,
+                &quot;path&quot;: &quot;/ready&quot;,
+                &quot;portIndex&quot;: 0,
+                &quot;protocol&quot;: &quot;HTTP&quot;,
+                &quot;timeoutSeconds&quot;: 20,
+                &quot;delaySeconds&quot;: 15
+              }
+            ],
+          &quot;constraints&quot;: []
+        }
+    ]
+}
+</code></pre><p>&#x53EF;&#x4EE5;&#x5C06;json&#x4FDD;&#x5B58;&#x4E3A; <code>groups.json</code>, &#x7136;&#x540E;&#x6267;&#x884C;</p>
+<pre><code>curl -d &quot;@groups.json&quot; -X POST http://localhost:8080/v2/groups
+</code></pre><h2 id="&#x9A8C;&#x8BC1;-pilot-&#x72B6;&#x6001;">&#x9A8C;&#x8BC1; pilot &#x72B6;&#x6001;</h2>
+<p>&#x5982;&#x679C; health &#x4E3A;&#x7EFF;&#x8272;&#xFF0C;&#x5219;&#x90E8;&#x7F72;&#x6210;&#x529F;&#x3002;&#x53EF;&#x4EE5;&#x9A8C;&#x8BC1;pilot&#x72B6;&#x6001;&#xFF1A;</p>
+<pre><code># curl pilot.istio.marathon.slave.mesos:31993/debug/push_status
+{
+    &quot;ProxyStatus&quot;: {},
+    &quot;Start&quot;: &quot;2019-03-05T17:40:16.861168088Z&quot;,
+    &quot;End&quot;: &quot;0001-01-01T00:00:00Z&quot;
+}
+</code></pre><p>&#x8868;&#x793A; pilot &#x6700;&#x65B0;&#x7684;push&#x65F6;&#x95F4;&#x5728; <code>2019-03-05T17:40:16.861168088Z</code></p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="../prerequisite/mesos-container.html" class="navigation navigation-prev " aria-label="Previous page: mesos-container">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="pilot.html" class="navigation navigation-next " aria-label="Next page: 服务发现">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"istio 组件安装","level":"1.3","depth":1,"next":{"title":"服务发现","level":"1.3.1","depth":2,"path":"istio-setup/pilot.md","ref":"istio-setup/pilot.md","articles":[]},"previous":{"title":"mesos-container","level":"1.2.3","depth":2,"path":"prerequisite/mesos-container.md","ref":"prerequisite/mesos-container.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"istio-setup/pilot.md","mtime":"2019-03-05T17:42:11.236Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-03-06T04:28:13.883Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

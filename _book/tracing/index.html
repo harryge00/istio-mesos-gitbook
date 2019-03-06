@@ -1,0 +1,402 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>tracing · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    
+    <link rel="prev" href="../ingress/" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../prerequisite/mesos-dns.html">
+            
+                <a href="../prerequisite/mesos-dns.html">
+            
+                    
+                    环境准备
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../prerequisite/mesos-dns.html">
+            
+                <a href="../prerequisite/mesos-dns.html">
+            
+                    
+                    mesos-dns
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../prerequisite/cni.html">
+            
+                <a href="../prerequisite/cni.html">
+            
+                    
+                    cni
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../prerequisite/mesos-container.html">
+            
+                <a href="../prerequisite/mesos-container.html">
+            
+                    
+                    mesos-container
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../istio-setup/pilot.html">
+            
+                <a href="../istio-setup/pilot.html">
+            
+                    
+                    istio 组件安装
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../istio-setup/pilot.html">
+            
+                <a href="../istio-setup/pilot.html">
+            
+                    
+                    服务发现
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../bookinfo/">
+            
+                <a href="../bookinfo/">
+            
+                    
+                    bookinfo
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../bookinfo/route.html">
+            
+                <a href="../bookinfo/route.html">
+            
+                    
+                    路由控制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../bookinfo/faultinject.html">
+            
+                <a href="../bookinfo/faultinject.html">
+            
+                    
+                    错误注入
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../ingress/">
+            
+                <a href="../ingress/">
+            
+                    
+                    ingress
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.6" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    tracing
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >tracing</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h3 id="envoy&#x652F;&#x6301;trace">envoy&#x652F;&#x6301;trace</h3>
+<p>envoy&#x539F;&#x751F;&#x5C31;&#x652F;&#x6301;&#x5206;&#x5E03;&#x5F0F;&#x8FFD;&#x8E2A;&#x7CFB;&#x7EDF;&#x7684;&#x63A5;&#x5165;&#xFF0C;&#x5982;&#x652F;&#x6301;jaeger&#x548C;zipkin&#xFF0C;&#x5982;<a href="https://www.envoyproxy.io/docs/envoy/latest/intro/arch_overview/tracing#arch-overview-tracing" target="_blank">envoy&#x7684;Tracing&#x5B98;&#x65B9;&#x6587;&#x6863;</a>&#x4E2D;&#x8868;&#x660E;envoy&#x652F;&#x6301;&#x5982;&#x4E0B;trace&#x7279;&#x6027;&#xFF1A;</p>
+<ul>
+<li>&#x751F;&#x6210;Request Id&#xFF0C;&#x586B;&#x5145;HTTP&#x7684;header&#x5B57;&#x6BB5;x-request-id</li>
+<li>&#x5916;&#x90E8;&#x8DDF;&#x8E2A;&#x670D;&#x52A1;&#x96C6;&#x6210;&#xFF0C;&#x5982;&#x652F;&#x6301;LightStep, Zipkin&#x6216;&#x4EFB;&#x4F55;Zipkin&#x517C;&#x5BB9;&#x540E;&#x7AEF;(&#x5982;Jaeger)</li>
+<li>&#x6DFB;&#x52A0;Client trace ID</li>
+</ul>
+<p>&#x76F8;&#x5173;&#x4FE1;&#x606F;&#x53EF;&#x4EE5;&#x53C2;&#x8003;<a href="https://www.envoyproxy.cn/Buildingandinstallation/Sandboxes/JaegerTracing.html" target="_blank">envoy &#x4E2D;&#x6587;&#x6587;&#x6863;</a>&#xFF0C;&#x53E6;&#x5916;&#xFF0C;&#x5728;&#x6E90;&#x7801;&#x4E2D;&#x6709;&#x5BF9;&#x5E94;&#x7684;<a href="https://github.com/envoyproxy/envoy/blob/master/source/common/tracing/http_tracer_impl.cc" target="_blank">trace&#x76F8;&#x5173;&#x7684;&#x6E90;&#x7801;</a>&#x3002;</p>
+<h3 id="istio&#x652F;&#x6301;trace">Istio&#x652F;&#x6301;trace</h3>
+<p>Istio&#x7684;&#x5206;&#x5E03;&#x5F0F;&#x8FFD;&#x8E2A;&#x76F8;&#x5173;&#x4ECB;&#x7ECD;&#x91CC;&#x9762;&#x76F8;&#x5173;&#x8BF4;&#x660E;&#x53EF;&#x4EE5;&#x77E5;&#x9053;&#xFF0C;Istio&#x7684;envoy&#x4EE3;&#x7406;&#x62E6;&#x622A;&#x6D41;&#x91CF;&#x540E;&#x4F1A;&#x4E3B;&#x52A8;&#x4E0A;&#x62A5;trace&#x7CFB;&#x7EDF;&#xFF0C;&#x901A;&#x8FC7;proxy&#x7684;&#x53C2;&#x6570;zipkinAddress&#x6307;&#x5B9A;&#x4E86;trace&#x7CFB;&#x7EDF;&#x7684;&#x5730;&#x5740;&#xFF0C;&#x8FD9;&#x6837;&#x5C31;&#x4E0D;&#x4F1A;&#x518D;&#x7ECF;&#x8FC7;mixer&#x4E86;&#xFF0C;&#x76F4;&#x63A5;envoy&#x548C;trace&#x7CFB;&#x7EDF;&#x4EA4;&#x4E92;&#xFF0C;&#x5927;&#x4F53;&#x6D41;&#x7A0B;&#xFF1A;</p>
+<ul>
+<li>&#x5982;&#x679C;incoming&#x7684;&#x8BF7;&#x6C42;&#x6CA1;&#x6709;trace&#x76F8;&#x5173;&#x7684;headers&#xFF0C;&#x5219;&#x4F1A;&#x518D;&#x6D41;&#x91CF;&#x8FDB;&#x5165;pods&#x4E4B;&#x524D;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;root span</li>
+<li>&#x5982;&#x679C;incoming&#x7684;&#x8BF7;&#x6C42;&#x5305;&#x542B;&#x6709;trace&#x76F8;&#x5173;&#x7684;headers&#xFF0C;Sidecar&#x7684;proxy&#x5C06;&#x4F1A;extract&#x8FD9;&#x4E9B;span&#x7684;&#x4E0A;&#x4E0B;&#x6587;&#x4FE1;&#x606F;&#xFF0C;&#x7136;&#x540E;&#x518D;&#x5728;&#x6D41;&#x91CF;&#x8FDB;&#x5165;pods&#x4E4B;&#x524D;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x7EE7;&#x627F;&#x4E0A;&#x4E00;&#x4E2A;span&#x7684;&#x65B0;&#x7684;span</li>
+</ul>
+<p>&#x7531;&#x4E8E;Istio&#x7684;proxy&#x4EE3;&#x7406;&#x662F;envoy&#xFF0C;&#x800C;envoy&#x53C8;&#x539F;&#x751F;&#x652F;&#x6301;jaeger&#xFF0C;&#x90A3;&#x56E0;&#x6B64;Istio&#x81EA;&#x7136;&#x800C;&#x7136;&#x5C31;&#x652F;&#x6301;jaeger&#x4E86;&#xFF0C;&#x5728;&#x5B98;&#x65B9;&#x6587;&#x6863;<a href="https://istio.io/docs/tasks/telemetry/distributed-tracing/" target="_blank">Distributed Tracing</a>&#x4E2D;&#x6709;&#x76F8;&#x5173;&#x8F83;&#x4E3A;&#x8BE6;&#x7EC6;&#x7684;&#x8BF4;&#x660E;&#x3002;</p>
+<h3 id="&#x8BBF;&#x95EE;jaeger">&#x8BBF;&#x95EE;jaeger</h3>
+<p>&#x9996;&#x5148;&#x83B7;&#x53D6;jaeger&#x7684;&#x7AEF;&#x53E3;&#x4E0E;IP&#xFF0C;&#x53EF;&#x4EE5;&#x5728;marathon ui&#x4E0A;&#x83B7;&#x53D6;&#xFF0C;&#x7AEF;&#x53E3;&#x4E3A;<code>query-http</code> &#x5373;&#x4E3A;UI&#x7AEF;&#x53E3;&#x3002;
+<img src="https://istio.io/docs/tasks/telemetry/distributed-tracing/istio-tracing-list.png" alt="jager"></p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="../ingress/" class="navigation navigation-prev navigation-unique" aria-label="Previous page: ingress">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"tracing","level":"1.6","depth":1,"previous":{"title":"ingress","level":"1.5","depth":1,"path":"ingress/README.md","ref":"ingress/README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"tracing/README.md","mtime":"2019-03-06T02:03:47.579Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-03-06T04:28:13.883Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
