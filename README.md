@@ -10,3 +10,4 @@
     * [服务发现](servicediscovery/README.md)
     <!-- * [mixer](mixer/README.md)   -->
 * [bookinfo](bookinfo/README.md)
+    * [路由控制](servicediscovery/route.md)
