@@ -12,3 +12,4 @@
 * [bookinfo](bookinfo/README.md)
     * [路由控制](bookinfo/route.md)
     * [错误注入](bookinfo/faultinject.md)
+* [ingress](ingress/README.md)
