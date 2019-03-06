@@ -1,5 +1,5 @@
 ## 部署Pod应用
-Istio 部署成功后，即可部署应用。对于需要加入服务网格的服务，需要添加1个 pilot-agent 容器做流量劫持。1个pod例子如下:
+Istio 部署成功后，即可部署应用。对于需要加入服务网格的服务，需要添加1个 pilot-agent 容器做流量劫持。`details`的pod如下:
 ```
 {
   "environment": {
@@ -93,7 +93,7 @@ Istio 部署成功后，即可部署应用。对于需要加入服务网格的�
   "fetch": []
 }
 ```
-其中`proxy`的环境变量需要配置
+其中`proxy`的环境变量需要配置:
 
 |      环境变量      | 说明                                 |
 |:------------------:|:------------------------------------:|
@@ -103,101 +103,7 @@ Istio 部署成功后，即可部署应用。对于需要加入服务网格的�
 | ZIPKIN_ADDRESS     |zipkin地址                                      |
 | DISCOVERY_ADDRESSS |pilot grpc地址                                      |
 
-
-* details
-```details.json
-{
-  "environment": {
-    "SERVICES_DOMAIN": "marathon.slave.mesos",
-    "INBOUND_PORTS": "9080",
-    "SERVICE_NAME": "details-v1",
-    "ZIPKIN_ADDRESS": "zipkin.istio.marathon.slave.mesos:31767",
-    "DISCOVERY_ADDRESSS": "pilot.istio.marathon.slave.mesos:31510"
-  },
-  "labels": {
-    "istio": "details",
-    "version": "v1"
-  },
-  "id": "/details",
-  "containers": [
-    {
-      "name": "details",
-      "resources": {
-        "cpus": 0.1,
-        "mem": 512,
-        "disk": 0,
-        "gpus": 0
-      },
-      "endpoints": [
-        {
-          "name": "http-9080",
-          "containerPort": 9080,
-          "hostPort": 0,
-          "protocol": [
-            "tcp"
-          ]
-        }
-      ],
-      "image": {
-        "kind": "DOCKER",
-        "id": "istio/examples-bookinfo-details-v1:1.8.0"
-      }
-    },
-    {
-      "name": "proxy",
-      "resources": {
-        "cpus": 0.2,
-        "mem": 512,
-        "disk": 0,
-        "gpus": 0
-      },
-      "image": {
-        "kind": "DOCKER",
-        "forcePullImage": true,
-        "id": "hyge/proxy_debug:mesos2"
-      }
-    }
-  ],
-  "networks": [
-    {
-      "name": "mesos-bridge",
-      "mode": "container"
-    }
-  ],
-  "scaling": {
-    "instances": 1,
-    "kind": "fixed"
-  },
-  "scheduling": {
-    "backoff": {
-      "backoff": 1,
-      "backoffFactor": 1.15,
-      "maxLaunchDelay": 3600
-    },
-    "upgrade": {
-      "minimumHealthCapacity": 1,
-      "maximumOverCapacity": 1
-    },
-    "killSelection": "YOUNGEST_FIRST",
-    "unreachableStrategy": {
-      "inactiveAfterSeconds": 0,
-      "expungeAfterSeconds": 0
-    },
-    "placement": {
-      "constraints": [
-
-      ]
-    }
-  },
-  "executorResources": {
-    "cpus": 0.1,
-    "mem": 32,
-    "disk": 10
-  },
-  "volumes": [],
-  "fetch": []
-}
-```
+其余的pod json 如下：
 
 * ratings
 ```
@@ -681,8 +587,8 @@ curl -d "@productpage.json" -X POST http://localhost:8080/v2/pods
 curl -X GET \
   http://localhost:8080/v2/pods/productpage::status  |grep 'allocatedHostPort\|agentHostname'
 ```
-其中，`allocatedHostPort` 是端口，`agentHostname`食宿主机IP。
-刷新可以看到总共3中reviews：红星、黑星、没有星星。架构图如下：
+其中，`allocatedHostPort` 是端口，`agentHostname`是宿主机IP。
+刷新可以看到总共3种reviews：红星、黑星、没有星星。架构图如下：
 ![test](https://istio.io/docs/examples/bookinfo/noistio.svg)
 
 ## 生成destinationrules

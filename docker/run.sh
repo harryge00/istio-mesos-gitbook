@@ -1,0 +1,1 @@
+docker run -d -v ~/.passwd:/etc/password/.htpasswd -v /home/ec2-user/istio-mesos-gitbook/docker/nginx-basic-auth.conf:/etc/nginx/conf.d/default.conf -v /home/ec2-user/istio-mesos-gitbook/_book/:/usr/share/nginx/html/ -p 8080:80 nginx
