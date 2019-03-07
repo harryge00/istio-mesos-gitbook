@@ -1,6 +1,4 @@
-# Introduction
-
-* [Introduction](README.md)
+# Istio 部署文档
 
 * [环境准备](prerequisite/mesos-dns.md)
     * [mesos-dns](prerequisite/mesos-dns.md)
