@@ -24,7 +24,7 @@ Ingressgateway 同样以pod的方式部署：
             "name": "istio-ingressgateway",
             "exec": {
                 "command": {
-                    "shell": "/usr/local/bin/pilot-agent proxy  router  -v  \"2\"  --discoveryRefreshDelay  '1s'   --drainDuration  '45s'  --parentShutdownDuration  '1m0s'  --connectTimeout  '10s' --serviceregistry Mesos --serviceCluster  istio-ingressgateway  --zipkinAddress  zipkin.marathon.slave.mesos:31767 --proxyAdminPort  \"15000\"  --controlPlaneAuthPolicy  NONE  --discoveryAddress  pilot.istio.marathon.slave.mesos:31510"
+                    "shell": "/usr/local/bin/pilot-agent proxy  router  -v  \"2\"  --discoveryRefreshDelay  '1s'   --drainDuration  '45s'  --parentShutdownDuration  '1m0s'  --connectTimeout  '10s' --serviceregistry Mesos --serviceCluster  istio-ingressgateway  --zipkinAddress  zipkin.istio.marathon.slave.mesos:31767 --proxyAdminPort  \"15000\"  --controlPlaneAuthPolicy  NONE  --discoveryAddress  pilot.istio.marathon.slave.mesos:31510"
                 }
             },
             "resources": {
