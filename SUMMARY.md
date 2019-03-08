@@ -1,7 +1,5 @@
 # Summary
 
-* [Introduction](README.md)
-
 * [环境准备](prerequisite/mesos-dns.md)
     * [mesos-dns](prerequisite/mesos-dns.md)
     * [cni](prerequisite/cni.md)
@@ -14,3 +12,4 @@
     * [错误注入](bookinfo/faultinject.md)
 * [ingress](ingress/README.md)
 * [tracing](tracing/README.md)
+* [mixer](telemetry/README.md)

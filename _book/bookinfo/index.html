@@ -263,6 +263,19 @@
             
         </li>
     
+        <li class="chapter " data-level="1.7" data-path="../telemetry/">
+            
+                <a href="../telemetry/">
+            
+                    
+                    mixer
+            
+                </a>
+            
+
+            
+        </li>
+    
 
     
 
@@ -309,7 +322,7 @@
                                 <section class="normal markdown-section">
                                 
                                 <h2 id="&#x90E8;&#x7F72;pod&#x5E94;&#x7528;">&#x90E8;&#x7F72;Pod&#x5E94;&#x7528;</h2>
-<p>Istio &#x90E8;&#x7F72;&#x6210;&#x529F;&#x540E;&#xFF0C;&#x5373;&#x53EF;&#x90E8;&#x7F72;&#x5E94;&#x7528;&#x3002;&#x5BF9;&#x4E8E;&#x9700;&#x8981;&#x52A0;&#x5165;&#x670D;&#x52A1;&#x7F51;&#x683C;&#x7684;&#x670D;&#x52A1;&#xFF0C;&#x9700;&#x8981;&#x6DFB;&#x52A0;1&#x4E2A; pilot-agent &#x5BB9;&#x5668;&#x505A;&#x6D41;&#x91CF;&#x52AB;&#x6301;&#x3002;1&#x4E2A;pod&#x4F8B;&#x5B50;&#x5982;&#x4E0B;:</p>
+<p>Istio &#x90E8;&#x7F72;&#x6210;&#x529F;&#x540E;&#xFF0C;&#x5373;&#x53EF;&#x90E8;&#x7F72;&#x5E94;&#x7528;&#x3002;&#x5BF9;&#x4E8E;&#x9700;&#x8981;&#x52A0;&#x5165;&#x670D;&#x52A1;&#x7F51;&#x683C;&#x7684;&#x670D;&#x52A1;&#xFF0C;&#x9700;&#x8981;&#x6DFB;&#x52A0;1&#x4E2A; pilot-agent &#x5BB9;&#x5668;&#x505A;&#x6D41;&#x91CF;&#x52AB;&#x6301;&#x3002;<code>details</code>&#x7684;pod&#x5982;&#x4E0B;:</p>
 <pre><code>{
   &quot;environment&quot;: {
     &quot;SERVICES_DOMAIN&quot;: &quot;marathon.slave.mesos&quot;,
@@ -401,7 +414,7 @@
   &quot;volumes&quot;: [],
   &quot;fetch&quot;: []
 }
-</code></pre><p>&#x5176;&#x4E2D;<code>proxy</code>&#x7684;&#x73AF;&#x5883;&#x53D8;&#x91CF;&#x9700;&#x8981;&#x914D;&#x7F6E;</p>
+</code></pre><p>&#x5176;&#x4E2D;<code>proxy</code>&#x7684;&#x73AF;&#x5883;&#x53D8;&#x91CF;&#x9700;&#x8981;&#x914D;&#x7F6E;:</p>
 <table>
 <thead>
 <tr>
@@ -432,103 +445,9 @@
 </tr>
 </tbody>
 </table>
+<p>&#x5176;&#x4F59;&#x7684;pod json &#x5982;&#x4E0B;&#xFF1A;</p>
 <ul>
-<li><p>details</p>
-<pre><code class="lang-details.json">{
-&quot;environment&quot;: {
-  &quot;SERVICES_DOMAIN&quot;: &quot;marathon.slave.mesos&quot;,
-  &quot;INBOUND_PORTS&quot;: &quot;9080&quot;,
-  &quot;SERVICE_NAME&quot;: &quot;details-v1&quot;,
-  &quot;ZIPKIN_ADDRESS&quot;: &quot;zipkin.istio.marathon.slave.mesos:31767&quot;,
-  &quot;DISCOVERY_ADDRESSS&quot;: &quot;pilot.istio.marathon.slave.mesos:31510&quot;
-},
-&quot;labels&quot;: {
-  &quot;istio&quot;: &quot;details&quot;,
-  &quot;version&quot;: &quot;v1&quot;
-},
-&quot;id&quot;: &quot;/details&quot;,
-&quot;containers&quot;: [
-  {
-    &quot;name&quot;: &quot;details&quot;,
-    &quot;resources&quot;: {
-      &quot;cpus&quot;: 0.1,
-      &quot;mem&quot;: 512,
-      &quot;disk&quot;: 0,
-      &quot;gpus&quot;: 0
-    },
-    &quot;endpoints&quot;: [
-      {
-        &quot;name&quot;: &quot;http-9080&quot;,
-        &quot;containerPort&quot;: 9080,
-        &quot;hostPort&quot;: 0,
-        &quot;protocol&quot;: [
-          &quot;tcp&quot;
-        ]
-      }
-    ],
-    &quot;image&quot;: {
-      &quot;kind&quot;: &quot;DOCKER&quot;,
-      &quot;id&quot;: &quot;istio/examples-bookinfo-details-v1:1.8.0&quot;
-    }
-  },
-  {
-    &quot;name&quot;: &quot;proxy&quot;,
-    &quot;resources&quot;: {
-      &quot;cpus&quot;: 0.2,
-      &quot;mem&quot;: 512,
-      &quot;disk&quot;: 0,
-      &quot;gpus&quot;: 0
-    },
-    &quot;image&quot;: {
-      &quot;kind&quot;: &quot;DOCKER&quot;,
-      &quot;forcePullImage&quot;: true,
-      &quot;id&quot;: &quot;hyge/proxy_debug:mesos2&quot;
-    }
-  }
-],
-&quot;networks&quot;: [
-  {
-    &quot;name&quot;: &quot;mesos-bridge&quot;,
-    &quot;mode&quot;: &quot;container&quot;
-  }
-],
-&quot;scaling&quot;: {
-  &quot;instances&quot;: 1,
-  &quot;kind&quot;: &quot;fixed&quot;
-},
-&quot;scheduling&quot;: {
-  &quot;backoff&quot;: {
-    &quot;backoff&quot;: 1,
-    &quot;backoffFactor&quot;: 1.15,
-    &quot;maxLaunchDelay&quot;: 3600
-  },
-  &quot;upgrade&quot;: {
-    &quot;minimumHealthCapacity&quot;: 1,
-    &quot;maximumOverCapacity&quot;: 1
-  },
-  &quot;killSelection&quot;: &quot;YOUNGEST_FIRST&quot;,
-  &quot;unreachableStrategy&quot;: {
-    &quot;inactiveAfterSeconds&quot;: 0,
-    &quot;expungeAfterSeconds&quot;: 0
-  },
-  &quot;placement&quot;: {
-    &quot;constraints&quot;: [
-
-    ]
-  }
-},
-&quot;executorResources&quot;: {
-  &quot;cpus&quot;: 0.1,
-  &quot;mem&quot;: 32,
-  &quot;disk&quot;: 10
-},
-&quot;volumes&quot;: [],
-&quot;fetch&quot;: []
-}
-</code></pre>
-</li>
-<li><p>ratings</p>
-<pre><code>{
+<li>ratings<pre><code>{
   &quot;id&quot;: &quot;/ratings&quot;,
   &quot;labels&quot;: {
       &quot;istio&quot;: &quot;ratings&quot;,
@@ -996,8 +915,8 @@ curl -d &quot;@productpage.json&quot; -X POST http://localhost:8080/v2/pods
 </code></pre><p>&#x7136;&#x540E;&#xFF0C;&#x5C31;&#x53EF;&#x4EE5;&#x83B7;&#x53D6;productpage&#x7684;hostport&#xFF0C;&#x7136;&#x540E;&#x5728;&#x6D4F;&#x89C8;&#x5668;&#x8BBF;&#x95EE;&#x5566;&#x3002;</p>
 <pre><code>curl -X GET \
   http://localhost:8080/v2/pods/productpage::status  |grep &apos;allocatedHostPort\|agentHostname&apos;
-</code></pre><p>&#x5176;&#x4E2D;&#xFF0C;<code>allocatedHostPort</code> &#x662F;&#x7AEF;&#x53E3;&#xFF0C;<code>agentHostname</code>&#x98DF;&#x5BBF;&#x4E3B;&#x673A;IP&#x3002;
-&#x5237;&#x65B0;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x603B;&#x5171;3&#x4E2D;reviews&#xFF1A;&#x7EA2;&#x661F;&#x3001;&#x9ED1;&#x661F;&#x3001;&#x6CA1;&#x6709;&#x661F;&#x661F;&#x3002;&#x67B6;&#x6784;&#x56FE;&#x5982;&#x4E0B;&#xFF1A;
+</code></pre><p>&#x5176;&#x4E2D;&#xFF0C;<code>allocatedHostPort</code> &#x662F;&#x7AEF;&#x53E3;&#xFF0C;<code>agentHostname</code>&#x662F;&#x5BBF;&#x4E3B;&#x673A;IP&#x3002;
+&#x5237;&#x65B0;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x603B;&#x5171;3&#x79CD;reviews&#xFF1A;&#x7EA2;&#x661F;&#x3001;&#x9ED1;&#x661F;&#x3001;&#x6CA1;&#x6709;&#x661F;&#x661F;&#x3002;&#x67B6;&#x6784;&#x56FE;&#x5982;&#x4E0B;&#xFF1A;
 <img src="https://istio.io/docs/examples/bookinfo/noistio.svg" alt="test"></p>
 <h2 id="&#x751F;&#x6210;destinationrules">&#x751F;&#x6210;destinationrules</h2>
 <p>&#x5728;&#x505A;&#x7248;&#x672C;&#x63A7;&#x5236;&#x524D;&#xFF0C;&#x9700;&#x8981;&#x5148;&#x901A;&#x8FC7;destinationrules&#x5B9A;&#x4E49;&#x7248;&#x672C;&#xFF0C;</p>
@@ -1096,7 +1015,7 @@ EOF
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"bookinfo","level":"1.4","depth":1,"next":{"title":"路由控制","level":"1.4.1","depth":2,"path":"bookinfo/route.md","ref":"bookinfo/route.md","articles":[]},"previous":{"title":"服务发现","level":"1.3.1","depth":2,"path":"istio-setup/pilot.md","ref":"istio-setup/pilot.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"bookinfo/README.md","mtime":"2019-03-06T00:09:49.841Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-03-06T05:09:15.669Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"bookinfo","level":"1.4","depth":1,"next":{"title":"路由控制","level":"1.4.1","depth":2,"path":"bookinfo/route.md","ref":"bookinfo/route.md","articles":[]},"previous":{"title":"服务发现","level":"1.3.1","depth":2,"path":"istio-setup/pilot.md","ref":"istio-setup/pilot.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"bookinfo/README.md","mtime":"2019-03-07T03:21:02.543Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-03-08T01:03:52.604Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

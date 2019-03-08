@@ -263,6 +263,19 @@
             
         </li>
     
+        <li class="chapter " data-level="1.7" data-path="../telemetry/">
+            
+                <a href="../telemetry/">
+            
+                    
+                    mixer
+            
+                </a>
+            
+
+            
+        </li>
+    
 
     
 
@@ -330,7 +343,7 @@
             &quot;name&quot;: &quot;istio-ingressgateway&quot;,
             &quot;exec&quot;: {
                 &quot;command&quot;: {
-                    &quot;shell&quot;: &quot;/usr/local/bin/pilot-agent proxy  router  -v  \&quot;2\&quot;  --discoveryRefreshDelay  &apos;1s&apos;   --drainDuration  &apos;45s&apos;  --parentShutdownDuration  &apos;1m0s&apos;  --connectTimeout  &apos;10s&apos; --serviceregistry Mesos --serviceCluster  istio-ingressgateway  --zipkinAddress  zipkin.marathon.slave.mesos:31767 --proxyAdminPort  \&quot;15000\&quot;  --controlPlaneAuthPolicy  NONE  --discoveryAddress  pilot.istio.marathon.slave.mesos:31510&quot;
+                    &quot;shell&quot;: &quot;/usr/local/bin/pilot-agent proxy  router  -v  \&quot;2\&quot;  --discoveryRefreshDelay  &apos;1s&apos;   --drainDuration  &apos;45s&apos;  --parentShutdownDuration  &apos;1m0s&apos;  --connectTimeout  &apos;10s&apos; --serviceregistry Mesos --serviceCluster  istio-ingressgateway  --zipkinAddress  zipkin.istio.marathon.slave.mesos:31767 --proxyAdminPort  \&quot;15000\&quot;  --controlPlaneAuthPolicy  NONE  --discoveryAddress  pilot.istio.marathon.slave.mesos:31510&quot;
                 }
             },
             &quot;resources&quot;: {
@@ -639,7 +652,7 @@ EOF
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"ingress","level":"1.5","depth":1,"next":{"title":"tracing","level":"1.6","depth":1,"path":"tracing/README.md","ref":"tracing/README.md","articles":[]},"previous":{"title":"错误注入","level":"1.4.2","depth":2,"path":"bookinfo/faultinject.md","ref":"bookinfo/faultinject.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"ingress/README.md","mtime":"2019-03-06T01:47:53.664Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-03-06T05:09:15.669Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"ingress","level":"1.5","depth":1,"next":{"title":"tracing","level":"1.6","depth":1,"path":"tracing/README.md","ref":"tracing/README.md","articles":[]},"previous":{"title":"错误注入","level":"1.4.2","depth":2,"path":"bookinfo/faultinject.md","ref":"bookinfo/faultinject.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"ingress/README.md","mtime":"2019-03-07T03:31:18.409Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-03-08T01:03:52.604Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

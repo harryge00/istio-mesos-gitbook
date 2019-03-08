@@ -22,7 +22,7 @@ istio-policy 的 json 如下：
             "name": "mixer",
             "exec": {
                 "command": {
-                    "shell": "/usr/local/bin/mixs server --address unix:///sock/mixer.socket --configStoreURL=k8s:///mnt/mesos/sandbox/kubeconfig --configDefaultNamespace=default --trace_zipkin_url=http://zipkin.marathon.slave.mesos:31767/api/v1/spans"
+                    "shell": "/usr/local/bin/mixs server --address unix:///sock/mixer.socket --configStoreURL=k8s:///mnt/mesos/sandbox/kubeconfig --configDefaultNamespace=default --trace_zipkin_url=http://zipkin.istio.marathon.slave.mesos:31767/api/v1/spans"
                 }
             },
             "resources": {

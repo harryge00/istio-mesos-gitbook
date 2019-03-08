@@ -12,3 +12,4 @@
     * [错误注入](bookinfo/faultinject.md)
 * [ingress](ingress/README.md)
 * [tracing](tracing/README.md)
+* [mixer](telemetry/README.md)
