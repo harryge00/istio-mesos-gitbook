@@ -1,12 +1,110 @@
 Mixer 在服务网格中分为两个组件部署：istio-policy 和 istio-telemetry 。前者负责 check policy，包括限流和黑白名单。后者负责遥测。这样分离可以使两者更好的水平扩展，前者只负责check和quota的api，后者只负责telemetry的API。如果只需要对接prometheus，那么可以只部署 istio-telemetry
 
 ## 准备工作
-首先, 为了使 istio-telemetry 使用 mesosenv 和 prometheus 这两个adapter，需要创建crd：
+
+* 首先, 为了使 istio-telemetry 使用 mesosenv 和 prometheus 这两个adapter，需要创建crd:
+
 ```
 kubectl apply -f https://raw.githubusercontent.com/harryge00/mylinuxrc/master/dcos/istio/install/crd-mixer.yaml
 kubectl apply -f https://raw.githubusercontent.com/harryge00/mylinuxrc/master/dcos/istio/install/crd-mixer-instances.yaml
 
 ```
+
+* 另外，需要 pilot 增加--meshConfig参数，指定mesh配置文件。所以将pilot的json改为:
+```
+{
+  "id": "/istio/pilot",
+  "cmd": "/usr/local/bin/pilot-discovery discovery --httpAddr :15007 --registries Mesos --domain marathon.slave.mesos --mesosVIPDomain marathon.slave.mesos --mesosMaster http://master.mesos:8080 --kubeconfig /mnt/mesos/sandbox/kubeconfig --meshConfig /mnt/mesos/sandbox/mesh",
+  "cpus": 1,
+  "mem": 1024,
+  "disk": 0,
+  "instances": 1,
+  "acceptedResourceRoles": [],
+  "container": {
+    "type": "DOCKER",
+    "docker": {
+      "forcePullImage": false,
+      "image": "hyge/pilot:mesos",
+      "parameters": [],
+      "privileged": false
+    },
+    "volumes": [],
+    "portMappings": [
+      {
+        "containerPort": 9093,
+        "hostPort": 31993,
+        "labels": {},
+        "name": "debug",
+        "protocol": "tcp",
+        "servicePort": 10001
+      },
+      {
+        "containerPort": 15010,
+        "hostPort": 31510,
+        "labels": {},
+        "name": "grpc",
+        "protocol": "tcp",
+        "servicePort": 10004
+      },
+      {
+        "containerPort": 15007,
+        "hostPort": 31507,
+        "labels": {},
+        "name": "http",
+        "protocol": "tcp",
+        "servicePort": 10012
+      }
+    ]
+  },
+  "dependencies": [
+    "/istio/apiserver"
+  ],
+  "healthChecks": [
+    {
+      "gracePeriodSeconds": 300,
+      "ignoreHttp1xx": false,
+      "intervalSeconds": 60,
+      "maxConsecutiveFailures": 3,
+      "path": "/ready",
+      "portIndex": 0,
+      "protocol": "HTTP",
+      "timeoutSeconds": 20,
+      "delaySeconds": 15
+    }
+  ],
+  "networks": [
+    {
+      "mode": "container/bridge"
+    }
+  ],
+  "portDefinitions": [],
+  "fetch": [
+    {
+      "uri": "https://raw.githubusercontent.com/harryge00/mylinuxrc/master/dcos/istio/install/kubeconfig",
+      "extract": false,
+      "executable": false,
+      "cache": false
+    },
+    {
+      "uri": "https://raw.githubusercontent.com/harryge00/mylinuxrc/master/dcos/istio/mesh",
+      "extract": false,
+      "executable": false,
+      "cache": false
+    }
+  ]
+}
+```
+其中，https://raw.githubusercontent.com/harryge00/mylinuxrc/master/dcos/istio/mesh 即为所需的mesh配置:
+```
+# Set the following variable to true to disable policy checks by the Mixer.
+# Note that metrics will still be reported to the Mixer.
+disablePolicyChecks: false
+# Deprecated: mixer is using EDS
+mixerCheckServer: istio-policy.marathon.slave.mesos:9091
+mixerReportServer: istio-telemetry.marathon.slave.mesos:9091
+```
+其中指定了`mixerCheckServer` 和 `mixerReportServer`的地址
+
 
 ## 部署istio-telemetry/policy和prometheus
 * istio-policy
