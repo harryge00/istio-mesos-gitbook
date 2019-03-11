@@ -103,7 +103,15 @@ disablePolicyChecks: false
 mixerCheckServer: istio-policy.marathon.slave.mesos:9091
 mixerReportServer: istio-telemetry.marathon.slave.mesos:9091
 ```
-其中指定了`mixerCheckServer` 和 `mixerReportServer`的地址
+其中指定了`mixerCheckServer` 和 `mixerReportServer`的地址。如果不需要`policy`，则只需要指定后者：
+```
+# Set the following variable to true to disable policy checks by the Mixer.
+# Note that metrics will still be reported to the Mixer.
+disablePolicyChecks: false
+# Deprecated: mixer is using EDS
+mixerReportServer: istio-telemetry.marathon.slave.mesos:9091
+```
+
 
 
 ## 部署istio-telemetry/policy和prometheus

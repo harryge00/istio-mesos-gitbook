@@ -414,7 +414,12 @@ disablePolicyChecks: false
 # Deprecated: mixer is using EDS
 mixerCheckServer: istio-policy.marathon.slave.mesos:9091
 mixerReportServer: istio-telemetry.marathon.slave.mesos:9091
-</code></pre>&#x5176;&#x4E2D;&#x6307;&#x5B9A;&#x4E86;<code>mixerCheckServer</code> &#x548C; <code>mixerReportServer</code>&#x7684;&#x5730;&#x5740;</li>
+</code></pre>&#x5176;&#x4E2D;&#x6307;&#x5B9A;&#x4E86;<code>mixerCheckServer</code> &#x548C; <code>mixerReportServer</code>&#x7684;&#x5730;&#x5740;&#x3002;&#x5982;&#x679C;&#x4E0D;&#x9700;&#x8981;<code>policy</code>&#xFF0C;&#x5219;&#x53EA;&#x9700;&#x8981;&#x6307;&#x5B9A;&#x540E;&#x8005;&#xFF1A;<pre><code># Set the following variable to true to disable policy checks by the Mixer.
+# Note that metrics will still be reported to the Mixer.
+disablePolicyChecks: false
+# Deprecated: mixer is using EDS
+mixerReportServer: istio-telemetry.marathon.slave.mesos:9091
+</code></pre></li>
 </ul>
 <h2 id="&#x90E8;&#x7F72;istio-telemetrypolicy&#x548C;prometheus">&#x90E8;&#x7F72;istio-telemetry/policy&#x548C;prometheus</h2>
 <ul>
@@ -816,7 +821,7 @@ rate(istio_requests_total{destination_service=~&quot;productpage.*&quot;, respon
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"mixer","level":"1.7","depth":1,"previous":{"title":"tracing","level":"1.6","depth":1,"path":"tracing/README.md","ref":"tracing/README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"telemetry/README.md","mtime":"2019-03-08T07:18:30.110Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-03-08T01:02:59.665Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"mixer","level":"1.7","depth":1,"previous":{"title":"tracing","level":"1.6","depth":1,"path":"tracing/README.md","ref":"tracing/README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"telemetry/README.md","mtime":"2019-03-11T03:10:07.795Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-03-11T03:10:50.149Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -824,10 +829,6 @@ rate(istio_requests_total{destination_service=~&quot;productpage.*&quot;, respon
         
     <script src="../gitbook/gitbook.js"></script>
     <script src="../gitbook/theme.js"></script>
-    
-        
-        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
-        
     
         
         <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
