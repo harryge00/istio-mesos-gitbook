@@ -13,3 +13,4 @@
 * [ingress](ingress/README.md)
 * [tracing](tracing/README.md)
 * [mixer](telemetry/README.md)
+* [citadel](citadel/README.md)

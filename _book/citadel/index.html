@@ -1,0 +1,705 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>citadel · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    
+    <link rel="prev" href="../telemetry/" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../prerequisite/mesos-dns.html">
+            
+                <a href="../prerequisite/mesos-dns.html">
+            
+                    
+                    环境准备
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../prerequisite/mesos-dns.html">
+            
+                <a href="../prerequisite/mesos-dns.html">
+            
+                    
+                    mesos-dns
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../prerequisite/cni.html">
+            
+                <a href="../prerequisite/cni.html">
+            
+                    
+                    cni
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../prerequisite/mesos-container.html">
+            
+                <a href="../prerequisite/mesos-container.html">
+            
+                    
+                    mesos-container
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../istio-setup/pilot.html">
+            
+                <a href="../istio-setup/pilot.html">
+            
+                    
+                    istio 组件安装
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../istio-setup/pilot.html">
+            
+                <a href="../istio-setup/pilot.html">
+            
+                    
+                    服务发现
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../bookinfo/">
+            
+                <a href="../bookinfo/">
+            
+                    
+                    bookinfo
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../bookinfo/route.html">
+            
+                <a href="../bookinfo/route.html">
+            
+                    
+                    路由控制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../bookinfo/faultinject.html">
+            
+                <a href="../bookinfo/faultinject.html">
+            
+                    
+                    错误注入
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../ingress/">
+            
+                <a href="../ingress/">
+            
+                    
+                    ingress
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../tracing/">
+            
+                <a href="../tracing/">
+            
+                    
+                    tracing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../telemetry/">
+            
+                <a href="../telemetry/">
+            
+                    
+                    mixer
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.8" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    citadel
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >citadel</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="citadel">Citadel</h1>
+<p>json:</p>
+<pre><code>{
+  &quot;id&quot;: &quot;/citadel&quot;,
+  &quot;cmd&quot;: &quot;/usr/local/bin/istio_ca --citadel-storage-namespace=istio-system --grpc-port=8060 --grpc-host-identities=istio-standalone-citadel --self-signed-ca=true --self-signed-ca-org=zmcc-org --self-signed-ca-cert-ttl=24000h --sign-ca-certs=true --workload-cert-ttl=21h --kube-config=/mnt/mesos/sandbox/kubeconfig&quot;,
+  &quot;cpus&quot;: 1,
+  &quot;mem&quot;: 1024,
+  &quot;disk&quot;: 0,
+  &quot;instances&quot;: 1,
+  &quot;acceptedResourceRoles&quot;: [
+    &quot;*&quot;
+  ],
+  &quot;container&quot;: {
+    &quot;type&quot;: &quot;DOCKER&quot;,
+    &quot;docker&quot;: {
+      &quot;forcePullImage&quot;: false,
+      &quot;image&quot;: &quot;michaelbi/citadel-test:1.0.5&quot;,
+      &quot;parameters&quot;: [],
+      &quot;privileged&quot;: false
+    },
+    &quot;volumes&quot;: [],
+    &quot;portMappings&quot;: [
+      {
+        &quot;containerPort&quot;: 8060,
+        &quot;hostPort&quot;: 0,
+        &quot;labels&quot;: {},
+        &quot;name&quot;: &quot;grpc&quot;,
+        &quot;protocol&quot;: &quot;tcp&quot;,
+        &quot;servicePort&quot;: 10104
+      }
+    ]
+  },
+  &quot;networks&quot;: [
+    {
+      &quot;mode&quot;: &quot;container/bridge&quot;
+    }
+  ],
+  &quot;uris&quot;: [
+    &quot;https://raw.githubusercontent.com/harryge00/mylinuxrc/master/dcos/istio/install/kubeconfig&quot;
+  ]
+}
+</code></pre><h2 id="&#x9A8C;&#x8BC1;7&#x5C42;-mtls">&#x9A8C;&#x8BC1;7&#x5C42; mTLS</h2>
+<p>citadel &#x53EF;&#x4EE5;&#x4F7F;&#x670D;&#x52A1;&#x4E4B;&#x95F4;&#x901A;&#x8FC7;7&#x5C42;&#x7684;TLS&#x52A0;&#x5BC6;&#x901A;&#x4FE1;&#x3002;</p>
+<ol>
+<li>&#x4E3A;&#x4E86;&#x9A8C;&#x8BC1;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5148;&#x90E8;&#x7F72;&#x4E24;&#x4E2A;&#x670D;&#x52A1;<code>httpbin</code> &#x548C; <code>sleep</code>&#xFF1A;<pre><code>{
+&quot;environment&quot;: {
+ &quot;SERVICES_DOMAIN&quot;: &quot;marathon.slave.mesos&quot;,
+ &quot;INBOUND_PORTS&quot;: &quot;8000&quot;,
+ &quot;SERVICE_NAME&quot;: &quot;httpbin&quot;,
+ &quot;ZIPKIN_ADDRESS&quot;: &quot;zipkin.istio.marathon.slave.mesos:31767&quot;,
+ &quot;DISCOVERY_ADDRESSS&quot;: &quot;pilot.istio.marathon.slave.mesos:31510&quot;
+},
+&quot;labels&quot;: {
+ &quot;istio&quot;: &quot;httpbin&quot;
+},
+&quot;id&quot;: &quot;/httpbin&quot;,
+&quot;containers&quot;: [
+ {
+   &quot;name&quot;: &quot;httpbin&quot;,
+   &quot;resources&quot;: {
+     &quot;cpus&quot;: 0.5,
+     &quot;mem&quot;: 256,
+     &quot;disk&quot;: 0,
+     &quot;gpus&quot;: 0
+   },
+   &quot;exec&quot;: {
+     &quot;command&quot;: {
+       &quot;shell&quot;: &quot;/usr/bin/python3 /usr/local/bin/gunicorn --bind=0.0.0.0:8000 httpbin:app&quot;
+     }
+   },
+   &quot;endpoints&quot;: [
+     {
+       &quot;name&quot;: &quot;http&quot;,
+       &quot;containerPort&quot;: 8000,
+       &quot;hostPort&quot;: 0,
+       &quot;protocol&quot;: [
+         &quot;tcp&quot;
+       ],
+       &quot;labels&quot;: {
+         &quot;VIP_0&quot;: &quot;/httpbin:8000&quot;
+       }
+     }
+   ],
+   &quot;image&quot;: {
+     &quot;kind&quot;: &quot;DOCKER&quot;,
+     &quot;id&quot;: &quot;citizenstig/httpbin&quot;
+   }
+ },
+ {
+   &quot;name&quot;: &quot;proxy&quot;,
+   &quot;resources&quot;: {
+     &quot;cpus&quot;: 0.5,
+     &quot;mem&quot;: 512,
+     &quot;disk&quot;: 0,
+     &quot;gpus&quot;: 0
+   },
+   &quot;exec&quot;: {
+     &quot;command&quot;: {
+       &quot;shell&quot;: &quot;mkdir /etc/certs; cp ./certs/*.pem /etc/certs; chown -R istio-proxy:istio-proxy /etc/certs/*.pem; /usr/local/bin/start.sh&quot;
+     }
+   },
+   &quot;image&quot;: {
+     &quot;kind&quot;: &quot;DOCKER&quot;,
+     &quot;id&quot;: &quot;hyge/proxy_debug:mesos2&quot;
+   },
+   &quot;artifacts&quot;: [
+     {
+       &quot;uri&quot;: &quot;https://s3-ap-southeast-1.amazonaws.com/marathon-cmd/bundle-certs.tgz&quot;,
+       &quot;extract&quot;: true,
+       &quot;executable&quot;: false,
+       &quot;cache&quot;: false
+     }
+   ]
+ }
+],
+&quot;networks&quot;: [
+ {
+   &quot;name&quot;: &quot;mesos-bridge&quot;,
+   &quot;mode&quot;: &quot;container&quot;
+ }
+],
+&quot;scaling&quot;: {
+ &quot;instances&quot;: 1,
+ &quot;kind&quot;: &quot;fixed&quot;
+},
+&quot;scheduling&quot;: {
+ &quot;backoff&quot;: {
+   &quot;backoff&quot;: 1,
+   &quot;backoffFactor&quot;: 1.15,
+   &quot;maxLaunchDelay&quot;: 3600
+ },
+ &quot;upgrade&quot;: {
+   &quot;minimumHealthCapacity&quot;: 1,
+   &quot;maximumOverCapacity&quot;: 1
+ },
+ &quot;killSelection&quot;: &quot;YOUNGEST_FIRST&quot;,
+ &quot;unreachableStrategy&quot;: {
+   &quot;inactiveAfterSeconds&quot;: 0,
+   &quot;expungeAfterSeconds&quot;: 0
+ },
+ &quot;placement&quot;: {
+   &quot;constraints&quot;: []
+ }
+}
+}
+</code></pre></li>
+</ol>
+<pre><code>{
+  &quot;environment&quot;: {
+    &quot;SERVICES_DOMAIN&quot;: &quot;marathon.slave.mesos&quot;,
+    &quot;INBOUND_PORTS&quot;: &quot;80&quot;,
+    &quot;SERVICE_NAME&quot;: &quot;sleep&quot;,
+    &quot;ZIPKIN_ADDRESS&quot;: &quot;zipkin.istio.marathon.slave.mesos:31767&quot;,
+    &quot;DISCOVERY_ADDRESSS&quot;: &quot;pilot.istio.marathon.slave.mesos:31510&quot;
+  },
+  &quot;labels&quot;: {
+    &quot;istio&quot;: &quot;sleep&quot;
+  },
+  &quot;id&quot;: &quot;/sleep&quot;,
+  &quot;containers&quot;: [
+    {
+      &quot;name&quot;: &quot;sleep&quot;,
+      &quot;resources&quot;: {
+        &quot;cpus&quot;: 0.2,
+        &quot;mem&quot;: 128,
+        &quot;disk&quot;: 0,
+        &quot;gpus&quot;: 0
+      },
+      &quot;exec&quot;: {
+        &quot;command&quot;: {
+          &quot;shell&quot;: &quot;sleep 3650d&quot;
+        }
+      },
+      &quot;endpoints&quot;: [
+        {
+          &quot;name&quot;: &quot;http&quot;,
+          &quot;containerPort&quot;: 80,
+          &quot;hostPort&quot;: 0,
+          &quot;protocol&quot;: [
+            &quot;tcp&quot;
+          ],
+          &quot;labels&quot;: {
+            &quot;VIP_0&quot;: &quot;/sleep:80&quot;
+          }
+        }
+      ],
+      &quot;image&quot;: {
+        &quot;kind&quot;: &quot;DOCKER&quot;,
+        &quot;id&quot;: &quot;pstauffer/curl&quot;
+      }
+    },
+    {
+      &quot;name&quot;: &quot;proxy&quot;,
+      &quot;resources&quot;: {
+        &quot;cpus&quot;: 0.5,
+        &quot;mem&quot;: 512,
+        &quot;disk&quot;: 0,
+        &quot;gpus&quot;: 0
+      },
+      &quot;exec&quot;: {
+        &quot;command&quot;: {
+          &quot;shell&quot;: &quot;mkdir /etc/certs; cp ./certs/*.pem /etc/certs; chown -R istio-proxy:istio-proxy /etc/certs/*.pem; /usr/local/bin/start.sh&quot;
+        }
+      },
+      &quot;image&quot;: {
+        &quot;kind&quot;: &quot;DOCKER&quot;,
+        &quot;id&quot;: &quot;hyge/proxy_debug:mesos2&quot;
+      },
+      &quot;artifacts&quot;: [
+        {
+          &quot;uri&quot;: &quot;https://s3-ap-southeast-1.amazonaws.com/marathon-cmd/bundle-certs.tgz&quot;,
+          &quot;extract&quot;: true,
+          &quot;executable&quot;: false,
+          &quot;cache&quot;: false
+        }
+      ]
+    }
+  ],
+  &quot;networks&quot;: [
+    {
+      &quot;name&quot;: &quot;mesos-bridge&quot;,
+      &quot;mode&quot;: &quot;container&quot;
+    }
+  ],
+  &quot;scaling&quot;: {
+    &quot;instances&quot;: 1,
+    &quot;kind&quot;: &quot;fixed&quot;
+  },
+  &quot;scheduling&quot;: {
+    &quot;backoff&quot;: {
+      &quot;backoff&quot;: 1,
+      &quot;backoffFactor&quot;: 1.15,
+      &quot;maxLaunchDelay&quot;: 3600
+    },
+    &quot;upgrade&quot;: {
+      &quot;minimumHealthCapacity&quot;: 1,
+      &quot;maximumOverCapacity&quot;: 1
+    },
+    &quot;killSelection&quot;: &quot;YOUNGEST_FIRST&quot;,
+    &quot;unreachableStrategy&quot;: {
+      &quot;inactiveAfterSeconds&quot;: 0,
+      &quot;expungeAfterSeconds&quot;: 0
+    },
+    &quot;placement&quot;: {
+      &quot;constraints&quot;: []
+    }
+  }
+}
+</code></pre><p>&#x901A;&#x8FC7; nsenter &#x8FDB;&#x5165; sleep&#x7684;namespace&#xFF1A;</p>
+<pre><code>$ ps aux|grep &quot;serviceCluster sleep&quot;
+root     27467  0.0  0.0  46980  1508 ?        S    02:39   0:00 su istio-proxy -c /usr/local/bin/pilot-agent proxy --discoveryAddress pilot.istio.marathon.slave.mesos:31510  --domain marathon.slave.mesos --serviceregistry Mesos --serviceCluster sleep --zipkinAddress zipkin.istio.marathon.slave.mesos:31767 --configPath /var/lib/istio
+
+$ nsenter -m -u -n -p -i -t 27467 /bin/sh
+root@b729422b-0a96-4479-a843-27243ed5d5df:/# curl httpbin.marathon.slave.mesos:8000/ip
+{
+  &quot;origin&quot;: &quot;127.0.0.1&quot;
+}
+</code></pre><ol>
+<li>&#x542F;&#x52A8;&#x5168;&#x5C40;mtls&#x89C4;&#x5219;</li>
+</ol>
+<pre><code>cat &lt;&lt;EOF | kubectl apply -f -
+apiVersion: &quot;authentication.istio.io/v1alpha1&quot;
+kind: &quot;MeshPolicy&quot;
+metadata:
+  name: &quot;default&quot;
+spec:
+  peers:
+  - mtls: {}
+EOF
+</code></pre><p>&#x518D;&#x6B21; nsenter &#x8FDB;&#x5165; sleep&#x7684;namespace</p>
+<pre><code>root@b729422b-0a96-4479-a843-27243ed5d5df:/# curl httpbin.marathon.slave.mesos:8000/ip
+upstream connect error or disconnect/reset before headers
+</code></pre><p>&#x6B64;&#x65F6;&#xFF0C;&#x7531;&#x4E8E;&#x670D;&#x52A1;&#x95F4;&#x5FC5;&#x987B;&#x8981;&#x7528;tls&#x901A;&#x4FE1;&#xFF0C;&#x800C;&#x76EE;&#x524D;&#x6CA1;&#x6709;&#x6307;&#x5B9A;envoy&#x542F;&#x7528;mtls&#xFF0C;&#x6240;&#x4EE5;&#x62A5;&#x9519;</p>
+<ol>
+<li>&#x4F7F; envoy &#x4F7F;&#x7528;mtls<pre><code>cat &lt;&lt;EOF | kubectl apply -f -
+apiVersion: &quot;networking.istio.io/v1alpha3&quot;
+kind: &quot;DestinationRule&quot;
+metadata:
+name: &quot;default&quot;
+namespace: &quot;default&quot;
+spec:
+host: &quot;*.marathon.slave.mesos&quot;
+trafficPolicy:
+ tls:
+   mode: ISTIO_MUTUAL
+EOF
+</code></pre></li>
+</ol>
+<p>&#x6B64;&#x65F6;&#xFF0C;&#x518D;&#x6B21;nsenter &#x8FDB;&#x5165;sleep&#xFF0C;&#x5C31;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;mtls &#x6765;&#x8BBF;&#x95EE; httpbin:</p>
+<pre><code>root@b729422b-0a96-4479-a843-27243ed5d5df:/# curl  httpbin.marathon.slave.mesos:8000/ip
+{
+  &quot;origin&quot;: &quot;127.0.0.1&quot;
+}
+</code></pre><h2 id="&#x6E05;&#x9664;auth&#x89C4;&#x5219;">&#x6E05;&#x9664;auth&#x89C4;&#x5219;</h2>
+<pre><code>kubectl delete MeshPolicy default
+</code></pre>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="../telemetry/" class="navigation navigation-prev navigation-unique" aria-label="Previous page: mixer">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"citadel","level":"1.8","depth":1,"previous":{"title":"mixer","level":"1.7","depth":1,"path":"telemetry/README.md","ref":"telemetry/README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"citadel/README.md","mtime":"2019-03-13T02:51:46.978Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-03-13T02:52:00.019Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
