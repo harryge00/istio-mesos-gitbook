@@ -314,4 +314,5 @@ root@b729422b-0a96-4479-a843-27243ed5d5df:/# curl  httpbin.marathon.slave.mesos:
 ## 清除auth规则
 ```
 kubectl delete MeshPolicy default
+kubectl delete destinationrule default
 ```
