@@ -43,7 +43,7 @@ json:
 ```
 ## 验证7层 mTLS
 citadel 可以使服务之间通过7层的TLS加密通信。
-1. 为了验证，我们可以先部署两个服务`httpbin` 和 `sleep`：
+* 为了验证，我们可以先部署两个服务`httpbin` 和 `sleep`：
 ```
 {
   "environment": {
@@ -265,18 +265,24 @@ root@b729422b-0a96-4479-a843-27243ed5d5df:/# curl httpbin.marathon.slave.mesos:8
 }
 ```
 
-2. 启动全局mtls规则
+* 给httpbin启动mtls规则
 
 ```
-cat <<EOF | kubectl apply -f -
 apiVersion: "authentication.istio.io/v1alpha1"
-kind: "MeshPolicy"
+kind: "Policy"
 metadata:
-  name: "default"
+  name: httpbin
 spec:
   peers:
   - mtls: {}
-EOF
+  targets:
+  # Must be short name of service
+  - name: httpbin
+    # subsets: "v1"
+    ports:
+    # name also supported
+    # TODO: this should be target port (container)
+    - number: 8000
 ```
 
 再次 nsenter 进入 sleep的namespace
@@ -284,18 +290,39 @@ EOF
 root@b729422b-0a96-4479-a843-27243ed5d5df:/# curl httpbin.marathon.slave.mesos:8000/ip
 upstream connect error or disconnect/reset before headers
 ```
-此时，由于服务间必须要用tls通信，而目前没有指定envoy启用mtls，所以报错
+此时，由于服务间必须要用tls通信，而目前没有指定sleep服务的envoy启用mtls，所以会报错。我们还可以通过pilot的debug接口验证mtls的启用情况：
+```
+curl pilot.istio.marathon.slave.mesos:31993/debug/authenticationz
 
-3. 使 envoy 使用mtls
+[
+...
+{
+    "host": "httpbin.marathon.slave.mesos",
+    "port": 8000,
+    "authentication_policy_name": "httpbin/default",
+    "destination_rule_name": "-",
+    "server_protocol": "mTLS",
+    "client_protocol": "HTTP",
+    "TLS_conflict_status": "CONFLICT"
+  },
+...
+]
+
+```
+可以看到`httpbin`在server端已经启用了mtls。但是客户端(sleep)还是http，所以`TLS_conflict_status`显示`CONFLICT`
+
+* 使 envoy 使用mtls
+
+为了使访问`httpbin`的客户端也启用mtls，配置如下`DestinationRule`：
 ```
 cat <<EOF | kubectl apply -f -
 apiVersion: "networking.istio.io/v1alpha3"
 kind: "DestinationRule"
 metadata:
-  name: "default"
+  name: "httpbin"
   namespace: "default"
 spec:
-  host: "*.marathon.slave.mesos"
+  host: "httpbin.marathon.slave.mesos"
   trafficPolicy:
     tls:
       mode: ISTIO_MUTUAL
@@ -310,9 +337,6 @@ root@b729422b-0a96-4479-a843-27243ed5d5df:/# curl  httpbin.marathon.slave.mesos:
 }
 ```
 
-
-## 清除auth规则
-```
-kubectl delete MeshPolicy default
-kubectl delete destinationrule default
-```
+## 小结
+在启用mtls后，`sleep`和`httpbin`之间的通信会被加密，加密的证书来自`https://s3-ap-southeast-1.amazonaws.com/marathon-cmd/bundle-certs.tgz`。我们还可以通过tcpdump来验证抓包的确是加密过的。
+另外，本文中的证书是每个服务通过uri fetch得到。istio 将会在`1.1.0`版引入 `SDS(secret discovery services)`，由pilot自动分发证书。但是目前的稳定版仍然是`1.0.6`，所以自动分发证书的功能会考虑在之后的稳定版引入mesos
